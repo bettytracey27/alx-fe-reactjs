@@ -1,6 +1,6 @@
 import React from 'react';
 import RegistrationForm from './components/RegistrationForm';
-import FormikForm from './components/FormikForm';
+import FormikForm from './components/FormikForm'; // Must match file name exactly
 
 function App() {
   return (
@@ -11,11 +11,12 @@ function App() {
       <hr style={{ margin: '40px 0' }} />
 
       <h1>Advanced Registration (Formik)</h1>
-      <FormikForm />
+      <FormikForm /> {/* Make sure this component is called exactly */}
     </div>
   );
 }
 
 export default App;
+
 
 
