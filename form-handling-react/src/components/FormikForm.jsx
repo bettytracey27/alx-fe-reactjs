@@ -2,8 +2,7 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-function FormikForm() {
-  // 1️⃣ Yup validation schema
+export default function FormikForm() {
   const validationSchema = Yup.object().shape({
     username: Yup.string().required('Username is required'),
     email: Yup.string().email('Invalid email format').required('Email is required'),
@@ -12,43 +11,36 @@ function FormikForm() {
       .required('Password is required'),
   });
 
-  // 2️⃣ Formik submit function
   const handleSubmit = (values, { resetForm }) => {
     alert(`Registration successful!\nUsername: ${values.username}\nEmail: ${values.email}`);
-    resetForm(); // Clear form after submission
+    resetForm();
   };
 
   return (
     <Formik
       initialValues={{ username: '', email: '', password: '' }}
-      validationSchema={validationSchema} // Attach Yup schema
-      onSubmit={handleSubmit} // Formik submit
+      validationSchema={validationSchema}
+      onSubmit={handleSubmit}
     >
       <Form>
         <h2>Registration Form (Formik)</h2>
 
-        <div style={{ marginBottom: '10px' }}>
-          <label htmlFor="username">Username:</label><br />
-          <Field id="username" name="username" type="text" />
-          <div style={{ color: 'red' }}>
-            <ErrorMessage name="username" />
-          </div>
+        <div>
+          <label htmlFor="username">Username:</label>
+          <Field id="username" name="username" />
+          <ErrorMessage name="username" component="div" style={{ color: 'red' }} />
         </div>
 
-        <div style={{ marginBottom: '10px' }}>
-          <label htmlFor="email">Email:</label><br />
+        <div>
+          <label htmlFor="email">Email:</label>
           <Field id="email" name="email" type="email" />
-          <div style={{ color: 'red' }}>
-            <ErrorMessage name="email" />
-          </div>
+          <ErrorMessage name="email" component="div" style={{ color: 'red' }} />
         </div>
 
-        <div style={{ marginBottom: '10px' }}>
-          <label htmlFor="password">Password:</label><br />
+        <div>
+          <label htmlFor="password">Password:</label>
           <Field id="password" name="password" type="password" />
-          <div style={{ color: 'red' }}>
-            <ErrorMessage name="password" />
-          </div>
+          <ErrorMessage name="password" component="div" style={{ color: 'red' }} />
         </div>
 
         <button type="submit">Register</button>
@@ -57,7 +49,7 @@ function FormikForm() {
   );
 }
 
-export default FormikForm;
+
 
 
 
