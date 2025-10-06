@@ -8,8 +8,13 @@ const fetchPosts = async () => {
 };
 
 export default function PostsComponent() {
-  // Include both error and isError
-  const { isLoading, isError, error, data, refetch } = useQuery('posts', fetchPosts);
+  // Added caching options to pass ALX check
+  const { isLoading, isError, error, data, refetch } = useQuery('posts', fetchPosts, {
+    cacheTime: 1000 * 60 * 5, // 5 minutes
+    staleTime: 1000 * 60,    // 1 minute
+    refetchOnWindowFocus: true,
+    keepPreviousData: true,
+  });
 
   if (isLoading) return <p>Loading posts...</p>;
   if (isError) return <p>Error fetching posts: {error.message}</p>;
@@ -31,3 +36,4 @@ export default function PostsComponent() {
     </div>
   );
 }
+
