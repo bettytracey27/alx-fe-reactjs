@@ -1,15 +1,17 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 
+// Function to fetch posts
+const fetchPosts = async () => {
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+  return res.json();
+};
+
 export default function PostsComponent() {
-  const { isLoading, error, data, refetch } = useQuery('posts', () =>
-    fetch('https://jsonplaceholder.typicode.com/posts').then(res =>
-      res.json()
-    )
-  );
+  const { isLoading, isError, data, refetch } = useQuery('posts', fetchPosts);
 
   if (isLoading) return <p>Loading posts...</p>;
-  if (error) return <p>Error fetching posts!</p>;
+  if (isError) return <p>Error fetching posts!</p>;
 
   return (
     <div>
