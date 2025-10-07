@@ -1,19 +1,30 @@
-import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import React from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import ProfileDetails from "./ProfileDetails";
+import ProfileSettings from "./ProfileSettings";
 
-export default function Profile() {
+function Profile() {
   return (
     <div>
-      <h1>Profile</h1>
-      <p>This page is protected and requires login.</p>
+      <h2>User Profile</h2>
+      <nav>
+        <ul>
+          <li>
+            <Link to="details">Profile Details</Link>
+          </li>
+          <li>
+            <Link to="settings">Profile Settings</Link>
+          </li>
+        </ul>
+      </nav>
 
-      <div style={{ marginBottom: 12 }}>
-        <Link to="details" style={{ marginRight: 8 }}>Details</Link>
-        <Link to="settings">Settings</Link>
-      </div>
-
-      {/* Nested routes will render here */}
-      <Outlet />
+      {/* Nested Routes */}
+      <Routes>
+        <Route path="details" element={<ProfileDetails />} />
+        <Route path="settings" element={<ProfileSettings />} />
+      </Routes>
     </div>
   );
 }
+
+export default Profile;
