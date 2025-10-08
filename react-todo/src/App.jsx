@@ -3,12 +3,12 @@ import TodoList from "./components/TodoList";
 
 function App() {
   return (
-    <div style={{ padding: 16 }}>
-      <h1>React Todo App</h1>
+    <div>
       <TodoList />
     </div>
   );
 }
 
 export default App;
+
 
