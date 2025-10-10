@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 
-export default function AddTodoForm({ onAddTodo }) {
+const AddTodoForm = ({ addTodo }) => {
   const [text, setText] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (text.trim() !== "") {
-      onAddTodo(text); // ✅ Correct function name matches TodoList
-      setText("");
-    }
+    addTodo(text);
+    setText("");
   };
 
   return (
@@ -22,7 +20,10 @@ export default function AddTodoForm({ onAddTodo }) {
       <button type="submit">Add</button>
     </form>
   );
-}
+};
+
+export default AddTodoForm;
+
 
 
 

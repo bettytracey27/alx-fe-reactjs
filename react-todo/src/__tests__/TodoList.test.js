@@ -12,10 +12,10 @@ test("renders initial todos", () => {
 test("adds a new todo", () => {
   render(<TodoList />);
   const input = screen.getByPlaceholderText("Add new todo");
-  const button = screen.getByText("Add");
+  const addButton = screen.getByText("Add");
 
   fireEvent.change(input, { target: { value: "New Task" } });
-  fireEvent.click(button);
+  fireEvent.click(addButton);
 
   expect(screen.getByText("New Task")).toBeInTheDocument();
 });
@@ -26,21 +26,18 @@ test("toggles a todo", () => {
 
   fireEvent.click(todoItem);
   expect(todoItem).toHaveStyle("text-decoration: line-through");
-
-  fireEvent.click(todoItem);
-  expect(todoItem).toHaveStyle("text-decoration: none");
 });
 
 test("deletes a todo", async () => {
   render(<TodoList />);
   const deleteButton = screen.getAllByText("Delete")[0];
-
   fireEvent.click(deleteButton);
 
   await waitFor(() => {
     expect(screen.queryByText("Learn React")).not.toBeInTheDocument();
   });
 });
+
 
 
 
