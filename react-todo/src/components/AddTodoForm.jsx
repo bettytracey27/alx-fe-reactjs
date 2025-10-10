@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 
-const AddTodoForm = ({ addTodo }) => {
-  const [value, setValue] = useState("");
+export default function AddTodoForm({ onAddTodo }) {
+  const [text, setText] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (value.trim() === "") return;
-    addTodo(value);
-    setValue("");
+    if (text.trim() !== "") {
+      onAddTodo(text); // ✅ Correct function name matches TodoList
+      setText("");
+    }
   };
 
   return (
@@ -15,13 +16,13 @@ const AddTodoForm = ({ addTodo }) => {
       <input
         type="text"
         placeholder="Add new todo"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
       />
-      <button type="submit">Add Todo</button>
+      <button type="submit">Add</button>
     </form>
   );
-};
+}
 
-export default AddTodoForm;
+
 
