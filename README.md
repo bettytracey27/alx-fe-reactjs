@@ -1,16 +1,42 @@
-# React + Vite
+# Recipe Sharing App 🍲
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is part of the **ALX Front-End ReactJS** course.  
+It demonstrates **state management in React** using **Zustand** by building a simple **Recipe Sharing Application**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧠 Learning Objectives
 
-## React Compiler
+By the end of this project, you will be able to:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Understand and utilize Zustand for state management.
+- Manage state effectively with custom stores and actions.
+- Build and organize React components with shared global state.
+- Implement functionality for adding, viewing, and managing recipes.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚙️ Technologies Used
+
+- React + Vite  
+- Zustand (for state management)  
+- JavaScript (ES6+)  
+- HTML5 & CSS3  
+
+---
+
+## 🧩 Features
+
+- Add new recipes with a title and description.  
+- View a list of all added recipes.  
+- Persistent and efficient state management using Zustand.  
+
+---
+
+## 🚀 Project Setup
+
+1. Create the project:
+   ```bash
+   npm create vite@latest recipe-sharing-app -- --template react
+   cd recipe-sharing-app
+
